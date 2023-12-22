@@ -55,39 +55,41 @@ void reverseString(string text)
 void balanceBrackets(string text) 
 {
     int parentheses = 0, squareBrackets = 0, braces = 0, result = -1;
+    int round = 0;
     bool balanceParentheses = true;
-    int count = 0;
+    int quad = 0;
+    int figure = 0;
     for (int i = 0; i < text.Length; i++)
     {
         if (text[i] == '(')
         {
-            parentheses++;
             balanceParentheses = false;
+            round++;
         } 
         if (text[i] == ')')
         {
-            parentheses--;
             balanceParentheses = false;
+            round--;
         } 
         if (text[i] == '[')
         {
-            squareBrackets++;
             balanceParentheses = false;
+            quad++;
         } 
-        if (text[i] == '[')
+        if (text[i] == ']')
         {
-            squareBrackets--;
             balanceParentheses = false;
+            quad--;
         } 
         if (text[i] == '{')
         {
-            braces++;
             balanceParentheses = false;
+            figure++;
         } 
         if (text[i] == '}')
         {
-            braces--;
             balanceParentheses = false;
+            figure--;
         } 
     }
     if (balanceParentheses == true)
@@ -95,14 +97,20 @@ void balanceBrackets(string text)
         Console.WriteLine("Скобки отсутствуют");
         return;
     }
-    if (parentheses != 0 || squareBrackets != 0 || braces != 0)
+    if (round != 0 || quad != 0 || figure != 0)
     {
         Console.WriteLine("Баланс скобок не соблюдён");
-    }
-    if (balanceParentheses == false && parentheses == 0 && squareBrackets == 0 && braces == 0)
+    } 
+    else 
     {
-        Console.WriteLine("Баланс скобок выдержан");
+        Console.WriteLine("Баланс скобок соблюдён");
     }
+    if(round > 0) Console.WriteLine("Имеются лишние круглые открывающиеся скобки");
+    if(round < 0) Console.WriteLine("Имеются лишние круглые закрывающиеся скобки");
+    if(quad > 0) Console.WriteLine("Имеются лишние квадратные открывающиеся скобки");
+    if(quad < 0) Console.WriteLine("Имеются лишние квадратные закрывающиеся скобки");
+    if(figure > 0) Console.WriteLine("Имеются лишние фигурные открывающиеся скобки");
+    if(figure < 0) Console.WriteLine("Имеются лишние фигурные закрывающиеся скобки");
 }
 
 void position(string text) {
@@ -201,11 +209,11 @@ string word = Message("Введите строку для определения
 // word = Message("Введите строку, которую необходимо инвертировать: ");
 // reverseString(word);
 // Console.ReadKey();
-// word = Message("Введите строку для проверки баланса скобок: ");
-// balanceBrackets(word);
+word = Message("Введите строку для проверки баланса скобок: ");
+balanceBrackets(word);
 // Console.ReadKey();
-word = Message("Введите строку для получения позиции подстроки: ");
-position(word);
+// word = Message("Введите строку для получения позиции подстроки: ");
+// position(word);
 // word = Message("Введите строку для конкатенации: ");
 // insertString(word);
 // Console.ReadKey();
