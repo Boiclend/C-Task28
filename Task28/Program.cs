@@ -112,7 +112,8 @@ void position(string text) {
     int pos = 0;
     for (int i = 0; i < text.Length; i++)
     {
-        if(substring[count] != text[i]) {
+        if(substring[count] != text[i]) 
+        {
             count = 0;
             pos = 0;
         }
@@ -126,7 +127,12 @@ void position(string text) {
             return;
         }
     }
-        Console.WriteLine($"Позиция: {pos + 1}");
+    if(pos == 0) 
+    {
+        Console.WriteLine("Подстрока не найдена");
+        return;
+    }
+    Console.WriteLine($"Позиция: {pos + 1}");
 }
     
 void insertString(string text) 
@@ -190,20 +196,20 @@ void cutString(string text)
 
 
 string word = Message("Введите строку для определения её длины: ");
-stringLenght(word);
-Console.ReadKey();
-word = Message("Введите строку, которую необходимо инвертировать: ");
-reverseString(word);
-Console.ReadKey();
-word = Message("Введите строку для проверки баланса скобок: ");
-balanceBrackets(word);
-Console.ReadKey();
+// stringLenght(word);
+// Console.ReadKey();
+// word = Message("Введите строку, которую необходимо инвертировать: ");
+// reverseString(word);
+// Console.ReadKey();
+// word = Message("Введите строку для проверки баланса скобок: ");
+// balanceBrackets(word);
+// Console.ReadKey();
 word = Message("Введите строку для получения позиции подстроки: ");
 position(word);
-word = Message("Введите строку для конкатенации: ");
-insertString(word);
-Console.ReadKey();
-word = Message("Введите строку из которой необходимо скопировать n символов: ");
-cutString(word);
-Console.ReadKey();
+// word = Message("Введите строку для конкатенации: ");
+// insertString(word);
+// Console.ReadKey();
+// word = Message("Введите строку из которой необходимо скопировать n символов: ");
+// cutString(word);
+// Console.ReadKey();
 

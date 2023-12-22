@@ -12,3 +12,4 @@ C:\Users\РомаиЛиля\Desktop\C#Task28\Task28\obj\Debug\net8.0\refint\Task
 C:\Users\РомаиЛиля\Desktop\C#Task28\Task28\obj\Debug\net8.0\Task28.pdb
 C:\Users\РомаиЛиля\Desktop\C#Task28\Task28\obj\Debug\net8.0\Task28.genruntimeconfig.cache
 C:\Users\РомаиЛиля\Desktop\C#Task28\Task28\obj\Debug\net8.0\ref\Task28.dll
+C:\Users\РомаиЛиля\Desktop\C#Task28\Task28\obj\Debug\net8.0\Task28.sourcelink.json
