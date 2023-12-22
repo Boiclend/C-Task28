@@ -204,20 +204,20 @@ void cutString(string text)
 
 
 string word = Message("Введите строку для определения её длины: ");
-// stringLenght(word);
-// Console.ReadKey();
-// word = Message("Введите строку, которую необходимо инвертировать: ");
-// reverseString(word);
-// Console.ReadKey();
+stringLenght(word);
+Console.ReadKey();
+word = Message("Введите строку, которую необходимо инвертировать: ");
+reverseString(word);
+Console.ReadKey();
 word = Message("Введите строку для проверки баланса скобок: ");
 balanceBrackets(word);
-// Console.ReadKey();
-// word = Message("Введите строку для получения позиции подстроки: ");
-// position(word);
-// word = Message("Введите строку для конкатенации: ");
-// insertString(word);
-// Console.ReadKey();
-// word = Message("Введите строку из которой необходимо скопировать n символов: ");
-// cutString(word);
-// Console.ReadKey();
+Console.ReadKey();
+word = Message("Введите строку для получения позиции подстроки: ");
+position(word);
+word = Message("Введите строку для конкатенации: ");
+insertString(word);
+Console.ReadKey();
+word = Message("Введите строку из которой необходимо скопировать n символов: ");
+cutString(word);
+Console.ReadKey();
 
