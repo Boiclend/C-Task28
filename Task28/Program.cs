@@ -54,63 +54,72 @@ void reverseString(string text)
 
 void balanceBrackets(string text) 
 {
-    int parentheses = 0, squareBrackets = 0, braces = 0, result = -1;
-    int round = 0;
-    bool balanceParentheses = true;
-    int quad = 0;
-    int figure = 0;
-    for (int i = 0; i < text.Length; i++)
+int n = text.Length;
+Stack<char> braces = new Stack<char>();
+bool ok = true;
+int index = 0;
+for (int i = 0; i < n; ++i)
+{
+    foreach (var c in text)
     {
-        if (text[i] == '(')
+        index++;
+        switch (c)
         {
-            balanceParentheses = false;
-            round++;
-        } 
-        if (text[i] == ')')
-        {
-            balanceParentheses = false;
-            round--;
-        } 
-        if (text[i] == '[')
-        {
-            balanceParentheses = false;
-            quad++;
-        } 
-        if (text[i] == ']')
-        {
-            balanceParentheses = false;
-            quad--;
-        } 
-        if (text[i] == '{')
-        {
-            balanceParentheses = false;
-            figure++;
-        } 
-        if (text[i] == '}')
-        {
-            balanceParentheses = false;
-            figure--;
-        } 
-    }
-    if (balanceParentheses == true)
+            case '{':
+            case '(':
+            case '[':
+                braces.Push(c);
+                break;
+
+            case '}':
+                if (braces.Count == 0)
+                {
+                    Console.WriteLine($"Проверка не пройдена, имеется лишняя закрывающая фигурная скобка по индексу - {index - 1}");
+                    return;
+                }
+                if (braces.Pop() != '{') 
+                {
+                    Console.WriteLine($"Проверка не пройдена, нарушена последовательность скобок по индексу - {index - 1}");
+                    return;
+                }
+                break;
+            case ']':
+                if (braces.Count == 0)
+                {
+                    Console.WriteLine($"Проверка не пройдена, имеется лишняя закрывающая квадратная скобка по индексу - {index - 1}");;
+                    return;
+                } 
+                if (braces.Pop() != '[')
+                {
+                    Console.WriteLine($"Проверка не пройдена, нарушена последовательность скобок по индексу - {index - 1}");;
+                    return;
+                } 
+                break;
+            case ')':
+                if (braces.Count == 0)
+                {
+                    Console.WriteLine($"Проверка не пройдена, имеется лишняя закрывающая круглая скобка по индексу - {index - 1}");
+                    return;
+                } 
+                if (braces.Pop() != '(') 
+                {
+                    Console.WriteLine($"Проверка не пройдена, нарушена последовательность скобок по индексу - {index - 1}");;
+                    return;
+                } 
+                break;
+        }
+    }   
+    if (braces.Count == 0) 
     {
-        Console.WriteLine("Скобки отсутствуют");
+        Console.WriteLine("Полседовательность не нарушена");
         return;
     }
-    if (round != 0 || quad != 0 || figure != 0)
+    else
     {
-        Console.WriteLine("Баланс скобок не соблюдён");
-    } 
-    else 
-    {
-        Console.WriteLine("Баланс скобок соблюдён");
+        Console.WriteLine($"Проверка не пройдена, имеется лишняя открывающая скобка - {braces.Peek()}, по индексу - {text.IndexOf(braces.Peek())}");
+        return;
     }
-    if(round > 0) Console.WriteLine("Имеются лишние круглые открывающиеся скобки");
-    if(round < 0) Console.WriteLine("Имеются лишние круглые закрывающиеся скобки");
-    if(quad > 0) Console.WriteLine("Имеются лишние квадратные открывающиеся скобки");
-    if(quad < 0) Console.WriteLine("Имеются лишние квадратные закрывающиеся скобки");
-    if(figure > 0) Console.WriteLine("Имеются лишние фигурные открывающиеся скобки");
-    if(figure < 0) Console.WriteLine("Имеются лишние фигурные закрывающиеся скобки");
+}
 }
 
 void position(string text) {
