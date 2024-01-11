@@ -52,13 +52,60 @@ void reverseString(string text)
     }
 }
 
-void balanceBrackets(string text) 
+void balanceBrackets(string text, int Choice) 
 {
-int n = text.Length;
 Stack<char> braces = new Stack<char>();
 bool ok = true;
 int index = 0;
-for (int i = 0; i < n; ++i)
+char temp = ' ';
+string path = @"C:\Users\РомаиЛиля\Desktop\C#Task28\Task28\t.txt";
+string xml = " ";
+xml = File.ReadAllText(path);
+if (Choice == 1)
+{
+    Console.WriteLine(xml);
+    for (int i = 0; i < xml.Length; ++i)
+{
+    foreach (var c in xml)
+    {
+        index++;
+        switch (c)
+        {
+            case '<':
+                braces.Push(c);
+                break;
+
+            case '>':
+                if (braces.Count == 0)
+                {
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается скобка >, а открытых нет");
+                    return;
+                }
+                temp = braces.Peek();
+                if (braces.Pop() != '<') 
+                {
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается скобка >, а открыта {temp}");
+                    return;
+                }
+                break;
+           
+        }
+    }   
+    if (braces.Count == 0) 
+    {
+        Console.WriteLine("Последовательность не нарушена");
+        return;
+    }
+    else
+    {
+        Console.WriteLine($"Проверка не пройдена, имеется лишняя открывающая скобка - {braces.Peek()}, по индексу - {xml.IndexOf(braces.Peek())}");
+        return;
+    }
+}
+}
+else
+{
+for (int i = 0; i < text.Length; ++i)
 {
     foreach (var c in text)
     {
@@ -74,36 +121,39 @@ for (int i = 0; i < n; ++i)
             case '}':
                 if (braces.Count == 0)
                 {
-                    Console.WriteLine($"Проверка не пройдена, имеется лишняя закрывающая фигурная скобка по индексу - {index - 1}");
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается {'}'} скобка, а открытых нет");
                     return;
                 }
+                temp = braces.Peek();
                 if (braces.Pop() != '{') 
                 {
-                    Console.WriteLine($"Проверка не пройдена, нарушена последовательность скобок по индексу - {index - 1}");
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается {'}'} скобка, а открыта {temp}");
                     return;
                 }
                 break;
             case ']':
                 if (braces.Count == 0)
                 {
-                    Console.WriteLine($"Проверка не пройдена, имеется лишняя закрывающая квадратная скобка по индексу - {index - 1}");;
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается ] скобка, а открытых нет");;
                     return;
-                } 
+                }
+                temp = braces.Peek();
                 if (braces.Pop() != '[')
                 {
-                    Console.WriteLine($"Проверка не пройдена, нарушена последовательность скобок по индексу - {index - 1}");;
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается ] скобка, а открыта {temp}");;
                     return;
                 } 
                 break;
             case ')':
                 if (braces.Count == 0)
                 {
-                    Console.WriteLine($"Проверка не пройдена, имеется лишняя закрывающая круглая скобка по индексу - {index - 1}");
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается ) скобка, а открытых нет");
                     return;
-                } 
+                }
+                temp = braces.Peek();
                 if (braces.Pop() != '(') 
                 {
-                    Console.WriteLine($"Проверка не пройдена, нарушена последовательность скобок по индексу - {index - 1}");;
+                    Console.WriteLine($"ошибка в символе - {index - 1}, закрывается ) скобка, а открыта {temp}");;
                     return;
                 } 
                 break;
@@ -119,6 +169,7 @@ for (int i = 0; i < n; ++i)
         Console.WriteLine($"Проверка не пройдена, имеется лишняя открывающая скобка - {braces.Peek()}, по индексу - {text.IndexOf(braces.Peek())}");
         return;
     }
+}
 }
 }
 
@@ -213,20 +264,29 @@ void cutString(string text)
 
 
 string word = Message("Введите строку для определения её длины: ");
-stringLenght(word);
-Console.ReadKey();
-word = Message("Введите строку, которую необходимо инвертировать: ");
-reverseString(word);
-Console.ReadKey();
-word = Message("Введите строку для проверки баланса скобок: ");
-balanceBrackets(word);
-Console.ReadKey();
-word = Message("Введите строку для получения позиции подстроки: ");
-position(word);
-word = Message("Введите строку для конкатенации: ");
-insertString(word);
-Console.ReadKey();
-word = Message("Введите строку из которой необходимо скопировать n символов: ");
-cutString(word);
-Console.ReadKey();
+// stringLenght(word);
+// Console.ReadKey();
+// word = Message("Введите строку, которую необходимо инвертировать: ");
+// reverseString(word);
+// Console.ReadKey();
+Console.WriteLine("Загрузить проверку из файла? 1 - да / 0 - нет");
+int choice = int.Parse(Console.ReadLine());
+if (choice != 1) 
+{
+    word = Message("Введите строку для проверки баланса скобок:");
+    balanceBrackets(word, choice);
+}
+else 
+{
+    balanceBrackets(word, choice);
+}
+// Console.ReadKey();
+// word = Message("Введите строку для получения позиции подстроки: ");
+// position(word);
+// word = Message("Введите строку для конкатенации: ");
+// insertString(word);
+// Console.ReadKey();
+// word = Message("Введите строку из которой необходимо скопировать n символов: ");
+// cutString(word);
+// Console.ReadKey();
 
