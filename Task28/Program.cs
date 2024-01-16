@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using System.Runtime.InteropServices;
+using System.Text;
 
 // Составить программу, содержащую стандартный набор функций обработки строк (аналоги си-функций).
 //  Программу необходимо реализовать без использования си-функций.
@@ -58,6 +59,8 @@ Stack<char> braces = new Stack<char>();
 bool ok = true;
 int index = 0;
 char temp = ' ';
+int count = 0;
+int[] mass = new int[text.Length];
 for (int i = 0; i < text.Length; ++i)
 {
     foreach (var c in text)
@@ -65,10 +68,17 @@ for (int i = 0; i < text.Length; ++i)
         index++;
         switch (c)
         {
-            case '{':
-            case '(':
-            case '[':
+            case '{':  
+                mass[count] = index - 1;
                 braces.Push(c);
+                break;
+            case '(':
+                 mass[count] = index - 1;
+                 braces.Push(c);
+                 break;
+            case '[':
+                 mass[count] = index - 1;
+                 braces.Push(c);
                 break;
 
             case '}':
@@ -83,6 +93,8 @@ for (int i = 0; i < text.Length; ++i)
                     Console.WriteLine($"ошибка в символе - {index - 1}, закрывается {'}'} скобка, а открыта {temp}");
                     return;
                 }
+                mass[count] = -1;
+                mass[count - 1] = -1;
                 break;
             case ']':
                 if (braces.Count == 0)
@@ -96,6 +108,8 @@ for (int i = 0; i < text.Length; ++i)
                     Console.WriteLine($"ошибка в символе - {index - 1}, закрывается ] скобка, а открыта {temp}");;
                     return;
                 } 
+                mass[count] = -1;
+                mass[count - 1] = -1;
                 break;
             case ')':
                 if (braces.Count == 0)
@@ -108,31 +122,37 @@ for (int i = 0; i < text.Length; ++i)
                 {
                     Console.WriteLine($"ошибка в символе - {index - 1}, закрывается ) скобка, а открыта {temp}");;
                     return;
-                } 
+                }
+                mass[count] = -1;
+                mass[count - 1] = -1;
                 break;
         }
+        count++;
     }
-    if (!text.Contains('}') && !text.Contains(')') && !text.Contains(']')) 
-    {
-        Console.WriteLine("Проверка не пройдена, отсутвуют закрывающие скобки");
-        for (int j = 0; j < braces.Count * 5; j++)
-        {
-             Console.WriteLine($"стек - {braces.Pop()}");
-        }
-        return;
-    }   
+  
     if (braces.Count == 0) 
     {
         Console.WriteLine("Полседовательность не нарушена");
         return;
+        
     }
     else
     {
-        Console.WriteLine($"Проверка не пройдена, имеется лишняя открывающая скобка - {braces.Peek()}, по индексу - {text.IndexOf(braces.Peek())}");
+        Console.WriteLine("Проверка не пройдена, не закрыты скобки:");
+        for (int j = text.Length - 1; j >= 0; j--)
+        {
+            if(mass[j] != -1) 
+            {
+                Console.WriteLine($"{braces.Pop()} символ {mass[j]}, ");
+            }
+            
+        }
         return;
     }
 }
+          
 }
+
 
 
 void position(string text) {
