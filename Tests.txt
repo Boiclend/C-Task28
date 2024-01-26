@@ -146,32 +146,6 @@ pivet
 r
 Подстрока не найдена
 
-Загрузить проверку из файла? 1 - да / 0 - нет
-1
-<?xml version="1.0" encoding="utf-8"?><report code="610036001001" form="1" shifr="P_BALE" year="2022" period="0101" version="14-12-2023" format-version="1.3"><title>
-<item name="okpo" value="71385386"/><item name="name" value="ООО Лента 001"/><item name="leader_fio" value="Сорокин Владимир Леонидович"/><item name="responsible_post"
- value=""/><item name="responsible_fio" value=""/><item name="phone" value=""/><item name="email" value=""/></title><sections><section code="1"><row code="1" s1="1">
- <col code="1"/><col code="2"/><col code="3"/><col code="4"/><col code="5"/><col code="6">0.640 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">
- 0.000 </col></row><row code="1" s1="2"><col code="1">190005, Санкт-Петербург г. Обводного Канала наб 118к.7 л.А</col><col code="2">1</col><col code="3"/>
- <col code="4">34</col><col code="5">50</col><col code="6">0.640 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row>
- <row code="1" s1="3"><col code="1">192286, Санкт-Петербург г. Бухарестская ул 69 лит А</col><col code="2">1</col><col code="3"/><col code="4">34</col>
- <col code="5">50</col><col code="6">0.000 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="1" s1="4">
- <col code="1">193230, Санкт-Петербург г. Дальневосточный пр-кт 16, Лит.А</col><col code="2">1</col><col code="3"/><col code="4">34</col><col code="5">50</col>
- <col code="6">0.440 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="1" s1="5">
- <col code="1">194356, Санкт-Петербург г. Выборгское ш 11, Лит.А</col><col code="2">1</col><col code="3"/><col code="4">34</col><col code="5">50</col><col code="6">0.000 </col>
- <col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="1" s1="6"><col code="1">195248, Санкт-Петербург г. Энергетиков пр-кт 16 лит. А</col>
- <col code="2">1</col><col code="3"/><col code="4">34</col><col code="5">50</col><col code="6">1000.400 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">
- 0.000 </col></row><row code="1" s1="7"><col code="1">196210, Санкт-Петербург г. Шереметьевская ул 11, Лит.А</col><col code="2">1</col><col code="3"/><col code="4">34</col>
- <col code="5">50</col><col code="6">0.400 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="1" s1="8"><col code="1">
- 196626, Санкт-Петербург п. Шушары, Московское ш., д.345 лит.А,этаж 1.пом.№1-Н,№части пом.103</col><col code="2">1</col><col code="3"/><col code="4">34</col><col code="5">50</col>
- <col code="6">0.000 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="1" s1="9"><col code="1">
- 197374, Санкт-Петербург г., Планерная ул., 17 лит А</col><col code="2">1</col><col code="3"/><col code="4">34</col><col code="5">50</col><col code="6">1.000 </col>
- <col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="1" s1="10"><col code="1">198206, Санкт-Петербург г. Петергофское шоссе 98, Лит.А</col>
- <col code="2">1</col><col code="3"/><col code="4">34</col><col code="5">50</col><col code="6">0.508 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col>
- </row><row code="1" s1="11"><col code="1">196626, Санкт-Петербург п. Шушары, Московское ш., д.345 лит.А,этаж 1.пом.№1-Н,№части пом.103</col><col code="2">1</col><col code="3"/>
- <col code="4">34</col><col code="5">50</col><col code="6">0.000 </col><col code="7">0.000 </col><col code="8">0.000 </col><col code="9">0.000 </col></row><row code="2">
- <col code="2">10</col><col code="6">1004.028</col><col code="7">0.000</col><col code="8">0.000</col><col code="9">0.000</col></row></section><section code="2"><row code="2">
- <col code="5">108.255</col></row><row code="7"><col code="5">108.255</col></row><row code="8"><col code="5">108.255</col></row><row code="12"><col code="5">108.255</col>
- </row><row code="15"><col code="5">108.255</col></row></section></sections></report>
+
  
 Последовательность не нарушена
